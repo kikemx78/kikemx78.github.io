@@ -1,0 +1,46 @@
+.search-cont
+  position relative
+  background #323440
+  padding 0.75em
+  @media (max-width: 514px)
+    padding-bottom 4.2em
+
+  .search-box
+    display flex
+    padding 0.35em 0 0.6em 0
+    margin-right auto
+    margin-bottom 0
+    margin-left auto
+    width 550px
+    background #fff
+    border-radius 30px
+    @media (max-width: 514px)
+      width calc(100% - 0.6em)
+      display block
+
+    .search-text
+      flex-grow 3
+      @media (max-width: 514px)
+        padding 5px
+      .search
+        .search-input
+          label
+            input
+              position relative
+              height 15px
+              width 96%
+              left 2%
+              border transparent
+              font-size 0.7em
+              &:focus
+                outline: none
+              @media (max-width: 514px)
+                font-size 0.9em
+    
+    .search-button
+      flex-grow 0.7
+      @media (max-width: 514px)
+        width calc(100% - 100px)
+        position relative
+        padding 0px 50px 0px 50px
+        top 20px

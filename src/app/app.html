@@ -1,0 +1,32 @@
+<div id="selected-item">
+  <selected-item 
+    data="$ctrl.selected" />
+</div>
+
+<div id="jumbo">
+  <jumbo 
+    comp-attrs="$ctrl.jumboCompAttrs" />
+</div>
+
+<div id="search-entry">
+  <search-entry 
+    action-ctrl="$ctrl.showGallery(e, $ctrl.mySearch)"
+    model-ctrl="$ctrl.mySearch"
+    comp-attrs="$ctrl.searchEntryAttrs"/> 
+</div>
+
+<div id="results-gallery">
+  <results-gallery 
+    data="$ctrl.queryResults"
+    action-click="$ctrl.showModal(item, source, image)" />
+</div>
+
+<div id="search-more" ng-if="$ctrl.queryResults.length >= 11">
+  <search-more 
+    action-ctrl="$ctrl.showGallery(e, $ctrl.mySearch)" 
+    comp-attrs="$ctrl.searchMoreAttrs"/>
+</div>
+
+<div id="preloader" ng-if="$ctrl.loadMe">
+  Loading...
+</div>

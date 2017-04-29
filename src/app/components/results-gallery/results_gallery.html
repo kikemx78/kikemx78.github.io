@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="main" >
+    <div class="gallery">
+      <md-card
+        class="card-item" 
+        ng-repeat="artist in $ctrl.data" 
+        comp-attrs="{footer: $ctrl.data[$index].name, image: $ctrl.data[$index].images[0].url, layer: {id: $ctrl.data[$index].id, type: $ctrl.data[$index].type }  }"
+        ng-click="$ctrl.clickedCard($index)" />
+    </div>
+  </div>
+</div>

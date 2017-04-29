@@ -1,0 +1,472 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Raleway'), local('Raleway-Light'), url(./fonts/RalewayLight.woff?) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway'), local('Raleway-Regular'), url(./fonts/RalewayRegular.woff?) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Medium'), url(./fonts/RalewayMedium.woff?) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(./fonts/RalewaySemiBold.woff?) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Raleway Bold'), local('Raleway-Bold'), url(./fonts/RalewayBold.woff?) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-weight: 700;
+  font-style: normal;
+  src: local('Raleway Black'), local('Raleway-Black'), url(./fonts/RalewayBlack.woff?) format('woff');
+}
+body {
+  background: #383a49;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway;
+}
+body #preloader {
+  position: fixed;
+  width: 100%;
+  height: 20px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  bottom: 0;
+}
+.jumbo {
+  position: relative;
+  background-color: #cf4284;
+  height: 25rem;
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 30rem;
+}
+@media (max-width: 760px) {
+  .jumbo {
+    background-size: 50%;
+    height: 15rem;
+  }
+}
+.jumbo .jumbo-top {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.jumbo img {
+  width: 53.33px;
+  height: 66.66px;
+  padding: 1.15rem;
+}
+@media (max-width: 760px) {
+  .jumbo img {
+    width: 35.55px;
+    height: 44.44px;
+  }
+}
+.jumbo .jumbo-text {
+  color: #fff;
+  font-weight: 300;
+  font-size: 0.75em;
+  padding: 1.15rem;
+}
+@media (max-width: 760px) {
+  .jumbo .jumbo-text {
+    font-size: 0.5em;
+  }
+}
+.md-button {
+  position: absolute;
+  width: auto;
+  min-width: 55px;
+  text-align: center;
+  background-color: #cf4284;
+  border-radius: 28px;
+  cursor: pointer;
+  font-size: 0.8em;
+  padding: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+@media (max-width: 514px) {
+  .md-button {
+    width: calc(100% - 10em);
+    padding: 15px;
+    font-size: 0.8em;
+  }
+}
+.md-button:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.md-button:active {
+  transform: scale(0.8);
+}
+.light-text {
+  color: #fff;
+}
+.search-cont {
+  position: relative;
+  background: #323440;
+  padding: 0.75em;
+}
+@media (max-width: 514px) {
+  .search-cont {
+    padding-bottom: 4.2em;
+  }
+}
+.search-cont .search-box {
+  display: flex;
+  padding: 0.35em 0 0.6em 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  width: 550px;
+  background: #fff;
+  border-radius: 30px;
+}
+@media (max-width: 514px) {
+  .search-cont .search-box {
+    width: calc(100% - 0.6em);
+    display: block;
+  }
+}
+.search-cont .search-box .search-text {
+  flex-grow: 3;
+}
+@media (max-width: 514px) {
+  .search-cont .search-box .search-text {
+    padding: 5px;
+  }
+}
+.search-cont .search-box .search-text .search .search-input label input {
+  position: relative;
+  height: 15px;
+  width: 96%;
+  left: 2%;
+  border: transparent;
+  font-size: 0.7em;
+}
+.search-cont .search-box .search-text .search .search-input label input:focus {
+  outline: none;
+}
+@media (max-width: 514px) {
+  .search-cont .search-box .search-text .search .search-input label input {
+    font-size: 0.9em;
+  }
+}
+.search-cont .search-box .search-button {
+  flex-grow: 0.7;
+}
+@media (max-width: 514px) {
+  .search-cont .search-box .search-button {
+    width: calc(100% - 100px);
+    position: relative;
+    padding: 0px 50px 0px 50px;
+    top: 20px;
+  }
+}
+.show-more {
+  position: relative;
+  height: 50px;
+  padding: 0.75em;
+}
+.show-more .but-cont {
+  position: relative;
+  width: 150px;
+  left: 45%;
+}
+@media (max-width: 514px) {
+  .show-more .but-cont {
+    width: calc(100% - 100px);
+    padding: 0 50px 0 50px;
+    left: 0;
+  }
+}
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 68.75rem;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 100%;
+}
+.container .main {
+  position: relative;
+  width: 95%;
+  left: 2.5%;
+}
+@media (max-width: 415px) {
+  .container .main {
+    width: 100%;
+    left: 0;
+  }
+}
+.container .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0.5em;
+}
+.card {
+  position: relative;
+  max-width: 230px;
+  max-height: 295px;
+  min-width: 230px;
+  min-height: 295px;
+  background: #fff;
+  margin: 2.5em 0 0 0;
+  border-radius: 2px;
+  color: #3a3b46;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+}
+.card .layer {
+  position: absolute;
+  max-width: 230px;
+  max-height: 245px;
+  min-width: 230px;
+  min-height: 245px;
+  transition: all 0.2s ease-in-out;
+  z-index: 3;
+}
+.card .layer .type-text {
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  width: 100%;
+  bottom: 0;
+}
+.card:active {
+  transform: scale(0.8);
+}
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transform: scale(0.95);
+  background-color: rgba(0,0,0,0.75);
+  color: #7f6c6c;
+}
+.card:hover .layer {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: rgba(0,0,0,0.75);
+}
+.card:hover .layer.artist {
+  background-image: url(./img/artist-icon@2x.png?);
+}
+.card:hover .layer.album {
+  background-image: url(./img/Bitmap@2x.png?);
+  background-size: 50%;
+}
+.card:hover .layer .type-text {
+  opacity: 1;
+}
+.card .card-img-cont {
+  position: relative;
+  width: 100%;
+  height: 245px;
+}
+.card .card-img-cont .card-img {
+  max-width: 230px;
+  max-height: 245px;
+  min-width: 230px;
+  min-height: 245px;
+}
+.card .footer {
+  width: 90%;
+  padding: 1em;
+  height: 25px;
+  font-size: 0.8em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.modal-cont {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.65);
+  z-index: 4;
+  transform: scale(0, 0);
+  transition: all 0.3s;
+}
+.modal-cont.active {
+  transform: scale(1, 1);
+  transition: all 0.3s;
+}
+.modal-cont .modal {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border-radius: 3px;
+  background: #fff;
+  width: 514px;
+}
+@media (max-width: 760px) {
+  .modal-cont .modal {
+    width: 95%;
+  }
+}
+.modal-cont .modal .modal-header {
+  position: absolute;
+  width: 100%;
+}
+.modal-cont .modal .modal-header .header-layer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-position: 25% 25%;
+}
+@media (max-width: 415px) {
+  .modal-cont .modal .modal-header .header-layer {
+    display: none;
+  }
+}
+.modal-cont .modal .modal-header .item-name {
+  position: absolute;
+  bottom: 0px;
+  float: left;
+  padding: 10px;
+  font-weight: 300;
+  color: #fff;
+  font-size: 1.3em;
+  text-shadow: 1px 1px #3a3b46;
+}
+.modal-cont .modal .modal-header .header-img {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-cont .modal .modal-header .header-mobile-cont {
+  display: none;
+  height: 80px;
+  margin: 10px;
+  padding-bottom: 5px;
+  border-bottom: solid 0.25px rgba(0,0,0,0.35);
+}
+@media (max-width: 415px) {
+  .modal-cont .modal .modal-header .header-mobile-cont {
+    display: flex;
+  }
+}
+.modal-cont .modal .modal-header .header-mobile-cont .header-img-mobile {
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+}
+.modal-cont .modal .modal-header .header-mobile-cont .item-name-mobile {
+  flex-grow: 1;
+  padding: 10px;
+  font-weight: 300;
+}
+.modal-cont .modal .modal-header .header-mobile-cont .item-name-mobile span {
+  font-weight: 500;
+}
+.modal-cont .modal .modal-header .close-button {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  float: right;
+  background-image: url(./img/Cross@2x.png?);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+.modal-cont .modal .modal-header .close-button:hover {
+  background-image: url(./img/Cross_Dark@2x.png?);
+}
+.modal-cont .modal .table-cont {
+  position: relative;
+  top: 200px;
+  padding: 10px;
+  height: 250px;
+  border-radius: 3px;
+  background: #fff;
+  overflow-y: scroll;
+}
+@media (max-width: 415px) {
+  .modal-cont .modal .table-cont {
+    top: 100px;
+  }
+}
+.modal-cont .modal .table-cont .table {
+  width: 100%;
+  border-collapse: separate;
+  text-align: left;
+}
+@media (max-width: 415px) {
+  .modal-cont .modal .table-cont .table thead {
+    display: none;
+  }
+}
+.modal-cont .modal .table-cont .table thead th {
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #3a3b46;
+  border-bottom: solid 0.25px rgba(0,0,0,0.35);
+  padding-bottom: 0.8em;
+  text-align: left;
+}
+.modal-cont .modal .table-cont .table tbody .album {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+.modal-cont .modal .table-cont .table tbody .album .track {
+  font-weight: 500;
+  color: #3a3b46;
+  font-size: 1em;
+}
+.modal-cont .modal .table-cont .table tbody .album .duration {
+  font-weight: 300;
+  color: #7f6c6c;
+  font-size: 0.75em;
+}
+.modal-cont .modal .table-cont .table tbody .artist .album-pic {
+  width: 50px;
+  height: 50px;
+}
+.modal-cont .modal .table-cont .table tbody .artist .album-pic padding-right 5px {
+  width: 50px;
+  height: 50px;
+}
+.modal-cont .modal .table-cont .table tbody .artist .album-pic img {
+  width: 50px;
+  height: 50px;
+}
+.modal-cont .modal .table-cont .table tbody .artist .track {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0px 0px 15px;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+.modal-cont .modal .table-cont .table tbody .artist .track span {
+  font-weight: 300;
+  color: #7f6c6c;
+  font-size: 0.75em;
+  padding-top: 5px;
+}
+
+/*# sourceMappingURL=app.bundle.css.map*/
