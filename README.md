@@ -28,6 +28,7 @@ Testing environment.
 ````
 npm run test
 npm test
+````
 
 ## Main tools used
 
