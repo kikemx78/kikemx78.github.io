@@ -208,6 +208,11 @@ body #footer-landing {
   height: 50px;
   padding: 0.75em;
 }
+@media (max-width: 514px) {
+  .show-more {
+    bottom: 20px;
+  }
+}
 .show-more .but-cont {
   position: relative;
   width: 150px;
@@ -228,13 +233,14 @@ body #footer-landing {
   padding: 0 20px;
   box-sizing: border-box;
   height: 100%;
+  padding-bottom: 10px;
 }
 .container .main {
   position: relative;
   width: 95%;
   left: 2.5%;
 }
-@media (max-width: 415px) {
+@media (max-width: 514px) {
   .container .main {
     width: 100%;
     left: 0;
@@ -357,7 +363,7 @@ body #footer-landing {
   height: 200px;
   background-position: 25% 25%;
 }
-@media (max-width: 415px) {
+@media (max-width: 514px) {
   .modal-cont .modal .modal-header .header-layer {
     display: none;
   }
@@ -385,7 +391,7 @@ body #footer-landing {
   padding-bottom: 5px;
   border-bottom: solid 0.25px rgba(0,0,0,0.35);
 }
-@media (max-width: 415px) {
+@media (max-width: 514px) {
   .modal-cont .modal .modal-header .header-mobile-cont {
     display: flex;
   }
@@ -427,7 +433,7 @@ body #footer-landing {
   background: #fff;
   overflow-y: scroll;
 }
-@media (max-width: 415px) {
+@media (max-width: 514px) {
   .modal-cont .modal .table-cont {
     top: 100px;
   }
@@ -437,7 +443,7 @@ body #footer-landing {
   border-collapse: separate;
   text-align: left;
 }
-@media (max-width: 415px) {
+@media (max-width: 514px) {
   .modal-cont .modal .table-cont .table thead {
     display: none;
   }
@@ -472,7 +478,7 @@ body #footer-landing {
   width: 50px;
   height: 50px;
 }
-@media (max-width: 415px) {
+@media (max-width: 514px) {
   .modal-cont .modal .table-cont .table tbody .artist .album-pic {
     display: none;
   }
@@ -488,7 +494,7 @@ body #footer-landing {
   font-weight: 500;
   font-size: 0.9em;
 }
-@media (max-width: 415px) {
+@media (max-width: 514px) {
   .modal-cont .modal .table-cont .table tbody .artist .track {
     padding: 10px 0px 0px 0px;
   }
