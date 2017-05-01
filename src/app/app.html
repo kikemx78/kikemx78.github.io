@@ -1,38 +1,42 @@
-<div id="selected-item">
+<div class="main-cont">
+  
+  <div id="selected-item">
   <selected-item 
     data="$ctrl.selected" />
-</div>
+  </div>
 
-<div id="jumbo">
-  <jumbo 
-    comp-attrs="$ctrl.jumboCompAttrs" />
-</div>
+  <div id="jumbo">
+    <jumbo 
+      comp-attrs="$ctrl.jumboCompAttrs" />
+  </div>
 
-<div id="search-entry">
-  <search-entry 
-    action-ctrl="$ctrl.showGallery(e, $ctrl.mySearch)"
-    model-ctrl="$ctrl.mySearch"
-    comp-attrs="$ctrl.searchEntryAttrs"/> 
-</div>
+  <div id="search-entry">
+    <search-entry 
+      action-ctrl="$ctrl.showGallery(e, $ctrl.mySearch)"
+      model-ctrl="$ctrl.mySearch"
+      comp-attrs="$ctrl.searchEntryAttrs"/> 
+  </div>
 
-<div id="results-gallery" ng-if="$ctrl.queryResults[0] !== undefined">
-  <results-gallery 
-    data="$ctrl.queryResults"
-    action-click="$ctrl.showModal(item, source, image)" />
-</div>
+  <div id="results-gallery" ng-if="$ctrl.queryResults[0] !== undefined">
+    <results-gallery 
+      data="$ctrl.queryResults"
+      action-click="$ctrl.showModal(item, source, image)" />
+  </div>
 
-<div id="magnifier" ng-if="$ctrl.queryResults[0] === undefined"> 
-  <figure>
-    <img src="img/Magnify@2x.png" />
-    <figcaption>Your resulst will appear here</figcaption>
-  </figure>
-</div>
+  <div id="magnifier" ng-if="$ctrl.queryResults[0] === undefined"> 
+    <figure>
+      <img src="img/Magnify@2x.png" />
+      <figcaption>Your resulst will appear here</figcaption>
+    </figure>
+  </div>
 
-<div id="search-more" ng-if="$ctrl.queryResults.length >= 11">
-  <search-more 
-    action-ctrl="$ctrl.showGallery(e, $ctrl.mySearch)" 
-    comp-attrs="$ctrl.searchMoreAttrs"/>
-</div>
+  <div id="search-more" ng-if="$ctrl.queryResults.length >= 11">
+    <search-more 
+      action-ctrl="$ctrl.showGallery(e, $ctrl.mySearch)" 
+      comp-attrs="$ctrl.searchMoreAttrs"/>
+  </div>
+
+  </div>
 
 <div id="preloader" ng-if="$ctrl.loadMe">
   Loading...
