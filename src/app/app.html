@@ -15,10 +15,17 @@
     comp-attrs="$ctrl.searchEntryAttrs"/> 
 </div>
 
-<div id="results-gallery">
+<div id="results-gallery" ng-if="$ctrl.queryResults[0] !== undefined">
   <results-gallery 
     data="$ctrl.queryResults"
     action-click="$ctrl.showModal(item, source, image)" />
+</div>
+
+<div id="magnifier" ng-if="$ctrl.queryResults[0] === undefined"> 
+  <figure>
+    <img src="img/Magnify@2x.png" />
+    <figcaption>Your resulst will appear here</figcaption>
+  </figure>
 </div>
 
 <div id="search-more" ng-if="$ctrl.queryResults.length >= 11">
@@ -29,4 +36,8 @@
 
 <div id="preloader" ng-if="$ctrl.loadMe">
   Loading...
+</div>
+
+<div id="footer-landing">
+  Designed by Geek Label - Powered by Spotify
 </div>

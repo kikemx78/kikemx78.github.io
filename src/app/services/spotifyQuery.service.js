@@ -43,5 +43,7 @@ class SpotifyQuery {
 
 }
 
-export default SpotifyQuery;
+export default angular.module('services.spotify_query', [])
+  .service('SpotifyQuery', SpotifyQuery)
+  .name;
    

@@ -8,7 +8,7 @@ const lgCardHeader = {
   controller: class {
     
     $onInit() {
-      console.log(this.compAttrs);
+      
     }
 
     get getAttrs() { 

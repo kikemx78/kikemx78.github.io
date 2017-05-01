@@ -33,7 +33,7 @@ const rootComponent = {
     }
 
     $onInit() {
-      
+      // console.log(this.queryResults[0])
     }
 
     showGallery(e, input) {
@@ -165,7 +165,7 @@ const rootComponent = {
 }
 
 export const root = angular
-  .module('root', [misc, components])
-  .service('SpotifyQuery', SpotifyQuery)
+  .module('root', [misc, components, SpotifyQuery])
+  // .service('SpotifyQuery', SpotifyQuery)
   .component('root', rootComponent)
   .name;
