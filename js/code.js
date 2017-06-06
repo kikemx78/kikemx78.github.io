@@ -85160,15 +85160,15 @@ if (query_params.dev_nomraid) {
   console.log("dev_nomraid showAd");
   showAd();
 } else {
-  if (mraid.getState() != 'ready') {
-    console.log("MRAID Ad: adding event listener for ready");
-    mraid.addEventListener('ready', function() {
-      setupMraid('ready');
-    });
-  } else {
+//   if (mraid.getState() != 'ready') {
+//     console.log("MRAID Ad: adding event listener for ready");
+//     mraid.addEventListener('ready', function() {
+//       setupMraid('ready');
+//     });
+//   } else {
     console.log("MRAID default ready");
     setupMraid('default');
-  }
+//   }
 }
 
 function wrapper_cleanup(){
