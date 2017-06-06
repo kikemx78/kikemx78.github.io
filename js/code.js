@@ -70441,34 +70441,13 @@ var BootAction = function (_Action) {
   }, {
     key: 'getBoardParameter',
     value: function getBoardParameter(targetParam, data) {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var str = _step.value;
-
-          if (str.indexOf(targetParam) == 0) {
-            var result = str.split('=');
-            if (result.length > 1) {
-              return { exist: true, result: parseInt(result[1]) };
-            } else {
-              return { exist: true };
-            }
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
+      for (var str in data) {
+        if (data[str].indexOf(targetParam) == 0) {
+          var result = data[str].split('=');
+          if (result.length > 1) {
+            return { exist: true, result: parseInt(result[1]) };
+          } else {
+            return { exist: true };
           }
         }
       }
@@ -70743,35 +70722,13 @@ var UserAction = function (_Action3) {
     _this7._swapBack = false;
     _this7.m3e.level.checkEndGame();
     _this7.possibleMoves = _this7.m3e.defaultMatcher.getPossibleMoves();
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
-
-    try {
-      for (var _iterator2 = _this7.possibleMoves[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-        var r = _step2.value;
-
-        if (r.refreshedColors) {
-          _this7.nextActionName = 'removeChips';
-          _this7.mPendingExit = true;
-          return _possibleConstructorReturn(_this7);
-        }
-      }
-    } catch (err) {
-      _didIteratorError2 = true;
-      _iteratorError2 = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-          _iterator2.return();
-        }
-      } finally {
-        if (_didIteratorError2) {
-          throw _iteratorError2;
-        }
+    for (var r in _this7.possibleMoves) {
+      if (_this7.possibleMoves[r].refreshedColors) {
+        _this7.nextActionName = 'removeChips';
+        _this7.mPendingExit = true;
+        return _possibleConstructorReturn(_this7);
       }
     }
-
     _this7.showPossibleMove();
     return _this7;
   }
@@ -70811,31 +70768,9 @@ var UserAction = function (_Action3) {
       this.m3e.setAllChipsMatchPending(false);
       var firstChipMatchedGroup = this.m3e.matchSlot(this._firstSlot.mI, this._firstSlot.mJ);
       if (firstChipMatchedGroup.exist) {
-        var _iteratorNormalCompletion3 = true;
-        var _didIteratorError3 = false;
-        var _iteratorError3 = undefined;
-
-        try {
-          for (var _iterator3 = firstChipMatchedGroup.result[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-            var item = _step3.value;
-
-            if (item.slot !== null) item.slot.pendingDestroy(item);
-          }
-        } catch (err) {
-          _didIteratorError3 = true;
-          _iteratorError3 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion3 && _iterator3.return) {
-              _iterator3.return();
-            }
-          } finally {
-            if (_didIteratorError3) {
-              throw _iteratorError3;
-            }
-          }
+        for (var item in firstChipMatchedGroup.result) {
+          if (firstChipMatchedGroup.result[item].slot !== null) firstChipMatchedGroup.result[item].slot.pendingDestroy(firstChipMatchedGroup.result[item]);
         }
-
         this.m3e.decreaseMoves();
         return true;
       } else {
@@ -70871,56 +70806,14 @@ var UserAction = function (_Action3) {
         }
         var firstChipMatchedGroup = this.m3e.matchSlot(this._firstSlot.mI, this._firstSlot.mJ);
         if (firstChipMatchedGroup.exist) {
-          var _iteratorNormalCompletion4 = true;
-          var _didIteratorError4 = false;
-          var _iteratorError4 = undefined;
-
-          try {
-            for (var _iterator4 = firstChipMatchedGroup.result[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-              var item = _step4.value;
-
-              if (item.slot !== null) item.slot.pendingDestroy(item);
-            }
-          } catch (err) {
-            _didIteratorError4 = true;
-            _iteratorError4 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion4 && _iterator4.return) {
-                _iterator4.return();
-              }
-            } finally {
-              if (_didIteratorError4) {
-                throw _iteratorError4;
-              }
-            }
+          for (var item in firstChipMatchedGroup.result) {
+            if (firstChipMatchedGroup.result[item].slot !== null) firstChipMatchedGroup.result[item].slot.pendingDestroy(firstChipMatchedGroup.result[item]);
           }
         }
         var secondChipMatchedGroup = this.m3e.matchSlot(this._secondSlot.mI, this._secondSlot.mJ);
         if (secondChipMatchedGroup.exist) {
-          var _iteratorNormalCompletion5 = true;
-          var _didIteratorError5 = false;
-          var _iteratorError5 = undefined;
-
-          try {
-            for (var _iterator5 = secondChipMatchedGroup.result[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-              var _item = _step5.value;
-
-              if (_item.slot !== null) _item.slot.pendingDestroy(_item);
-            }
-          } catch (err) {
-            _didIteratorError5 = true;
-            _iteratorError5 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion5 && _iterator5.return) {
-                _iterator5.return();
-              }
-            } finally {
-              if (_didIteratorError5) {
-                throw _iteratorError5;
-              }
-            }
+          for (var _item in secondChipMatchedGroup.result) {
+            if (secondChipMatchedGroup.result[_item].slot !== null) secondChipMatchedGroup.result[_item].slot.pendingDestroy(secondChipMatchedGroup.result[_item]);
           }
         }
         if (!firstChipMatchedGroup.exist && !secondChipMatchedGroup.exist) {
@@ -71464,29 +71357,8 @@ var Level = function () {
 
       var recipesDone = true;
       if (this.gameType.mType === 'recipe') {
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-          for (var _iterator = this.gameType.recipesInfo[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var r = _step.value;
-
-            if (r.count > 0) recipesDone = false;
-          }
-        } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-              _iterator.return();
-            }
-          } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
-            }
-          }
+        for (var r in this.gameType.recipesInfo) {
+          if (this.gameType.recipesInfo[r].count > 0) recipesDone = false;
         }
       } else recipesDone = false;
 
@@ -71731,41 +71603,19 @@ var RecipeGameType = function (_GameType3) {
     _this3._maxRecipeItems = 0;
     _this3._itemSettings = [];
     //console.log(params)
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
+    for (var p in params) {
 
-    try {
-      for (var _iterator2 = params[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-        var p = _step2.value;
+      params[p] = params[p].split('|');
+      var type = params[p][0];
+      var color = params[p][1];
+      params[p] = params[p][2].split('-');
+      //console.log(p, type)
 
-
-        p = p.split('|');
-        var type = p[0];
-        var color = p[1];
-        p = p[2].split('-');
-        //console.log(p, type)
-
-        if (_this3._maxRecipeItems <= maxColors) {
-          _this3._itemSettings.push({ min: parseInt(p[0]), max: parseInt(p[1]), type: type, color: color });
-          _this3._maxRecipeItems++;
-        }
-      }
-    } catch (err) {
-      _didIteratorError2 = true;
-      _iteratorError2 = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-          _iterator2.return();
-        }
-      } finally {
-        if (_didIteratorError2) {
-          throw _iteratorError2;
-        }
+      if (_this3._maxRecipeItems <= maxColors) {
+        _this3._itemSettings.push({ min: parseInt(params[p][0]), max: parseInt(params[p][1]), type: type, color: color });
+        _this3._maxRecipeItems++;
       }
     }
-
     _this3.mRecipe = [];
     _this3.generateRecipes();
     return _this3;
@@ -71805,83 +71655,40 @@ var ChipSettings = function () {
   _createClass(ChipSettings, [{
     key: 'initSettings',
     value: function initSettings() {
-      var _iteratorNormalCompletion3 = true;
-      var _didIteratorError3 = false;
-      var _iteratorError3 = undefined;
+      for (var s in this._settings) {
+        var settings = this._settings[s].split(',');
+        var chipType = settings.shift();
 
-      try {
-        for (var _iterator3 = this._settings[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          var s = _step3.value;
+        var canFall = this.getParams('f', settings);
+        canFall = canFall.exist ? canFall.result === 0 ? false : true : true;
 
-          var settings = s.split(',');
-          var chipType = settings.shift();
+        var canSwap = this.getParams('s', settings);
+        canSwap = canSwap.exist ? canSwap.result === 0 ? false : true : true;
 
-          var canFall = this.getParams('f', settings);
-          canFall = canFall.exist ? canFall.result === 0 ? false : true : true;
+        var canMatch = this.getParams('m', settings);
+        canMatch = canMatch.exist ? canMatch.result === 0 ? false : true : true;
 
-          var canSwap = this.getParams('s', settings);
-          canSwap = canSwap.exist ? canSwap.result === 0 ? false : true : true;
-
-          var canMatch = this.getParams('m', settings);
-          canMatch = canMatch.exist ? canMatch.result === 0 ? false : true : true;
-
-          this._chipSettings.push({
-            chipType: parseInt(chipType),
-            canFall: canFall,
-            canSwap: canSwap,
-            canMatch: canMatch
-          });
-        }
-      } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion3 && _iterator3.return) {
-            _iterator3.return();
-          }
-        } finally {
-          if (_didIteratorError3) {
-            throw _iteratorError3;
-          }
-        }
+        this._chipSettings.push({
+          chipType: parseInt(chipType),
+          canFall: canFall,
+          canSwap: canSwap,
+          canMatch: canMatch
+        });
       }
     }
   }, {
     key: 'getParams',
     value: function getParams(targetParam, data) {
-      var _iteratorNormalCompletion4 = true;
-      var _didIteratorError4 = false;
-      var _iteratorError4 = undefined;
-
-      try {
-        for (var _iterator4 = data[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-          var str = _step4.value;
-
-          if (str.indexOf(targetParam) == 0) {
-            var result = str.split('=');
-            if (result.length > 1) {
-              return { exist: true, result: parseInt(result[1]) };
-            } else {
-              return { exist: false };
-            }
-          }
-        }
-      } catch (err) {
-        _didIteratorError4 = true;
-        _iteratorError4 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion4 && _iterator4.return) {
-            _iterator4.return();
-          }
-        } finally {
-          if (_didIteratorError4) {
-            throw _iteratorError4;
+      for (var str in data) {
+        if (data[str].indexOf(targetParam) == 0) {
+          var result = data[str].split('=');
+          if (result.length > 1) {
+            return { exist: true, result: parseInt(result[1]) };
+          } else {
+            return { exist: false };
           }
         }
       }
-
       return { exist: false };
     }
   }, {
@@ -71891,32 +71698,11 @@ var ChipSettings = function () {
       var canSwap = true;
       var canMatch = true;
 
-      var _iteratorNormalCompletion5 = true;
-      var _didIteratorError5 = false;
-      var _iteratorError5 = undefined;
-
-      try {
-        for (var _iterator5 = this._chipSettings[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-          var s = _step5.value;
-
-          if (s.chipType == type) {
-            canFall = s.canFall;
-            canSwap = s.canSwap;
-            canMatch = s.canMatch;
-          }
-        }
-      } catch (err) {
-        _didIteratorError5 = true;
-        _iteratorError5 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion5 && _iterator5.return) {
-            _iterator5.return();
-          }
-        } finally {
-          if (_didIteratorError5) {
-            throw _iteratorError5;
-          }
+      for (var s in this._chipSettings) {
+        if (this._chipSettings[s].chipType == type) {
+          canFall = this._chipSettings[s].canFall;
+          canSwap = this._chipSettings[s].canSwap;
+          canMatch = this._chipSettings[s].canMatch;
         }
       }
 
@@ -72154,54 +71940,12 @@ var M3E = function () {
   }, {
     key: 'removeAllActions',
     value: function removeAllActions() {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.mActionQueue[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var a = _step.value;
-
-          a.mPendingExit = true;
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+      for (var a in this.mActionQueue) {
+        this.mActionQueue[a].mPendingExit = true;
       }
 
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        for (var _iterator2 = this.mAsyncActionsQueue[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var _a = _step2.value;
-
-          _a.mPendingExit = true;
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
+      for (var _a in this.mAsyncActionsQueue) {
+        this.mAsyncActionsQueue[_a].mPendingExit = true;
       }
     }
 
@@ -72459,36 +72203,14 @@ var M3E = function () {
     key: 'decreaseRecipe',
     value: function decreaseRecipe(chip) {
       var count = 0;
-      var _iteratorNormalCompletion3 = true;
-      var _didIteratorError3 = false;
-      var _iteratorError3 = undefined;
-
-      try {
-        for (var _iterator3 = this.level.gameType.recipesInfo[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          var r = _step3.value;
-
-          if (chip.color == r.color && chip.type == r.type && r.count > 0) {
-            r.count--;
-            this.level.cbUpdateRecipesUI();
-            return count;
-          }
-          count++;
+      for (var r in this.level.gameType.recipesInfo) {
+        if (chip.color == this.level.gameType.recipesInfo[r].color && chip.type == this.level.gameType.recipesInfo[r].type && this.level.gameType.recipesInfo[r].count > 0) {
+          this.level.gameType.recipesInfo[r].count--;
+          this.level.cbUpdateRecipesUI();
+          return count;
         }
-      } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion3 && _iterator3.return) {
-            _iterator3.return();
-          }
-        } finally {
-          if (_didIteratorError3) {
-            throw _iteratorError3;
-          }
-        }
+        count++;
       }
-
       return false;
     }
 
@@ -72880,29 +72602,8 @@ var M3Matcher = function () {
         }
         result = this.comparePatterns(this.createMatchPattern(allSlots), slot);
         if (result.exist) {
-          var _iteratorNormalCompletion4 = true;
-          var _didIteratorError4 = false;
-          var _iteratorError4 = undefined;
-
-          try {
-            for (var _iterator4 = result.items[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-              var r = _step4.value;
-
-              r.slot.isMatched = true;
-            }
-          } catch (err) {
-            _didIteratorError4 = true;
-            _iteratorError4 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion4 && _iterator4.return) {
-                _iterator4.return();
-              }
-            } finally {
-              if (_didIteratorError4) {
-                throw _iteratorError4;
-              }
-            }
+          for (var r in result.items) {
+            result.items[r].slot.isMatched = true;
           }
         }
       }
@@ -73071,30 +72772,9 @@ var M3Matcher = function () {
           var matchGroups = _this4.matchSlot(c, r);
           if (matchGroups.exist) {
             findGroups = true;
-            var _iteratorNormalCompletion5 = true;
-            var _didIteratorError5 = false;
-            var _iteratorError5 = undefined;
-
-            try {
-              for (var _iterator5 = matchGroups.result[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-                var item = _step5.value;
-
-                if (item.slot !== null) {
-                  item.slot.pendingDestroy(item);
-                }
-              }
-            } catch (err) {
-              _didIteratorError5 = true;
-              _iteratorError5 = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion5 && _iterator5.return) {
-                  _iterator5.return();
-                }
-              } finally {
-                if (_didIteratorError5) {
-                  throw _iteratorError5;
-                }
+            for (var item in matchGroups.result) {
+              if (matchGroups.result[item].slot !== null) {
+                matchGroups.result[item].slot.pendingDestroy(matchGroups.result[item]);
               }
             }
           }
@@ -73171,62 +72851,41 @@ var M3Matcher = function () {
         slot.destroyChipEffect();
         slot.mPendingDestroy = false;
       } else {
-        var _iteratorNormalCompletion6 = true;
-        var _didIteratorError6 = false;
-        var _iteratorError6 = undefined;
+        var _loop3 = function _loop3(c) {
+          if (chipsForRemove[c].slot.currentChip != 'no_chip') {
+            if (chipsForRemove[c].slot.currentChip.type != 0 && !_this5._m3e.slotsEqual(chipsForRemove[c].slot, slot) && slotsToRemove.find(function (x) {
+              return _this5._m3e.slotsEqual(chipsForRemove[c].slot, x);
+            }) == undefined && !chipsForRemove[c].slot.mThrowSpecialDestroy) {
+              // c.slot.currentChip.mIgnoreDestroyEffect = true;
+              // slot.currentChip.mIgnoreDestroyEffect = false;
+              _this5.removeSpecialChips(chipsForRemove[c].slot.currentChip.type, chipsForRemove[c].slot, slotsToRemove);
+            } else {
+              slotsToRemove.push({ mI: chipsForRemove[c].slot.mI, mJ: chipsForRemove[c].slot.mJ });
+              // if(c.slot.currentChip.type != 0)
+              //   c.slot.currentChip.mIgnoreDestroyEffect = false;
+              //slot.currentChip.mIgnoreDestroyEffect = false;
 
-        try {
-          var _loop3 = function _loop3() {
-            var c = _step6.value;
+              chipsForRemove[c].slot.mThrowSpecialDestroy = false;
+              chipsForRemove[c].slot.mSimpleDestroy = true;
+              if (_this5._m3e.level.gameType.mType === 'recipe') {
+                var recipeResult = _this5._m3e.decreaseRecipe(chipsForRemove[c].slot.currentChip);
+                if (recipeResult !== false) {
+                  chipsForRemove[c].slot.destroyChipEffect(recipeResult, counter);
+                  counter++;
+                } else {
+                  chipsForRemove[c].slot.destroyChipEffect();
+                }
+              } else chipsForRemove[c].slot.destroyChipEffect();
 
-            if (c.slot.currentChip != 'no_chip') {
-              if (c.slot.currentChip.type != 0 && !_this5._m3e.slotsEqual(c.slot, slot) && slotsToRemove.find(function (x) {
-                return _this5._m3e.slotsEqual(c.slot, x);
-              }) == undefined && !c.slot.mThrowSpecialDestroy) {
-                // c.slot.currentChip.mIgnoreDestroyEffect = true;
-                // slot.currentChip.mIgnoreDestroyEffect = false;
-                _this5.removeSpecialChips(c.slot.currentChip.type, c.slot, slotsToRemove);
-              } else {
-                slotsToRemove.push({ mI: c.slot.mI, mJ: c.slot.mJ });
-                // if(c.slot.currentChip.type != 0)
-                //   c.slot.currentChip.mIgnoreDestroyEffect = false;
-                //slot.currentChip.mIgnoreDestroyEffect = false;
-
-                c.slot.mThrowSpecialDestroy = false;
-                c.slot.mSimpleDestroy = true;
-                if (_this5._m3e.level.gameType.mType === 'recipe') {
-                  var recipeResult = _this5._m3e.decreaseRecipe(c.slot.currentChip);
-                  if (recipeResult !== false) {
-                    c.slot.destroyChipEffect(recipeResult, counter);
-                    counter++;
-                  } else {
-                    c.slot.destroyChipEffect();
-                  }
-                } else c.slot.destroyChipEffect();
-
-                c.slot.mPendingDestroy = true;
-                c.slot.currentChip.mStartDestroy = true;
-                c.slot.pendingMatch = true;
-              }
-            }
-          };
-
-          for (var _iterator6 = chipsForRemove[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-            _loop3();
-          }
-        } catch (err) {
-          _didIteratorError6 = true;
-          _iteratorError6 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion6 && _iterator6.return) {
-              _iterator6.return();
-            }
-          } finally {
-            if (_didIteratorError6) {
-              throw _iteratorError6;
+              chipsForRemove[c].slot.mPendingDestroy = true;
+              chipsForRemove[c].slot.currentChip.mStartDestroy = true;
+              chipsForRemove[c].slot.pendingMatch = true;
             }
           }
+        };
+
+        for (var c in chipsForRemove) {
+          _loop3(c);
         }
       }
 
@@ -73410,29 +73069,8 @@ var TAPM3Matcher = function () {
         }
         result = this.comparePatterns(this.createMatchPattern(allSlots), slot);
         if (result.exist) {
-          var _iteratorNormalCompletion7 = true;
-          var _didIteratorError7 = false;
-          var _iteratorError7 = undefined;
-
-          try {
-            for (var _iterator7 = result.items[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-              var r = _step7.value;
-
-              r.slot.isMatched = true;
-            }
-          } catch (err) {
-            _didIteratorError7 = true;
-            _iteratorError7 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion7 && _iterator7.return) {
-                _iterator7.return();
-              }
-            } finally {
-              if (_didIteratorError7) {
-                throw _iteratorError7;
-              }
-            }
+          for (var r in result.items) {
+            result.items[r].slot.isMatched = true;
           }
         }
       }
@@ -73670,62 +73308,41 @@ var TAPM3Matcher = function () {
         slot.destroyChipEffect();
         slot.mPendingDestroy = false;
       } else {
-        var _iteratorNormalCompletion8 = true;
-        var _didIteratorError8 = false;
-        var _iteratorError8 = undefined;
+        var _loop6 = function _loop6(c) {
+          if (chipsForRemove[c].slot.currentChip != 'no_chip') {
+            if (chipsForRemove[c].slot.currentChip.type != 0 && !_this7._m3e.slotsEqual(chipsForRemove[c].slot, slot) && slotsToRemove.find(function (x) {
+              return _this7._m3e.slotsEqual(chipsForRemove[c].slot, x);
+            }) == undefined && !chipsForRemove[c].slot.mThrowSpecialDestroy) {
+              // c.slot.currentChip.mIgnoreDestroyEffect = true;
+              // slot.currentChip.mIgnoreDestroyEffect = false;
+              _this7.removeSpecialChips(chipsForRemove[c].slot.currentChip.type, chipsForRemove[c].slot, slotsToRemove);
+            } else {
+              slotsToRemove.push({ mI: chipsForRemove[c].slot.mI, mJ: chipsForRemove[c].slot.mJ });
+              // if(c.slot.currentChip.type != 0)
+              //   c.slot.currentChip.mIgnoreDestroyEffect = false;
+              //slot.currentChip.mIgnoreDestroyEffect = false;
 
-        try {
-          var _loop6 = function _loop6() {
-            var c = _step8.value;
+              chipsForRemove[c].slot.mThrowSpecialDestroy = false;
+              chipsForRemove[c].slot.mSimpleDestroy = true;
+              if (_this7._m3e.level.gameType.mType === 'recipe') {
+                var recipeResult = _this7._m3e.decreaseRecipe(chipsForRemove[c].slot.currentChip);
+                if (recipeResult !== false) {
+                  chipsForRemove[c].slot.destroyChipEffect(recipeResult, counter);
+                  counter++;
+                } else {
+                  chipsForRemove[c].slot.destroyChipEffect();
+                }
+              } else chipsForRemove[c].slot.destroyChipEffect();
 
-            if (c.slot.currentChip != 'no_chip') {
-              if (c.slot.currentChip.type != 0 && !_this7._m3e.slotsEqual(c.slot, slot) && slotsToRemove.find(function (x) {
-                return _this7._m3e.slotsEqual(c.slot, x);
-              }) == undefined && !c.slot.mThrowSpecialDestroy) {
-                // c.slot.currentChip.mIgnoreDestroyEffect = true;
-                // slot.currentChip.mIgnoreDestroyEffect = false;
-                _this7.removeSpecialChips(c.slot.currentChip.type, c.slot, slotsToRemove);
-              } else {
-                slotsToRemove.push({ mI: c.slot.mI, mJ: c.slot.mJ });
-                // if(c.slot.currentChip.type != 0)
-                //   c.slot.currentChip.mIgnoreDestroyEffect = false;
-                //slot.currentChip.mIgnoreDestroyEffect = false;
-
-                c.slot.mThrowSpecialDestroy = false;
-                c.slot.mSimpleDestroy = true;
-                if (_this7._m3e.level.gameType.mType === 'recipe') {
-                  var recipeResult = _this7._m3e.decreaseRecipe(c.slot.currentChip);
-                  if (recipeResult !== false) {
-                    c.slot.destroyChipEffect(recipeResult, counter);
-                    counter++;
-                  } else {
-                    c.slot.destroyChipEffect();
-                  }
-                } else c.slot.destroyChipEffect();
-
-                c.slot.mPendingDestroy = true;
-                c.slot.currentChip.mStartDestroy = true;
-                c.slot.pendingMatch = true;
-              }
-            }
-          };
-
-          for (var _iterator8 = chipsForRemove[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-            _loop6();
-          }
-        } catch (err) {
-          _didIteratorError8 = true;
-          _iteratorError8 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion8 && _iterator8.return) {
-              _iterator8.return();
-            }
-          } finally {
-            if (_didIteratorError8) {
-              throw _iteratorError8;
+              chipsForRemove[c].slot.mPendingDestroy = true;
+              chipsForRemove[c].slot.currentChip.mStartDestroy = true;
+              chipsForRemove[c].slot.pendingMatch = true;
             }
           }
+        };
+
+        for (var c in chipsForRemove) {
+          _loop6(c);
         }
       }
 
@@ -74598,29 +74215,8 @@ var TutorialAction = function (_Action) {
       var targetSprite1 = this.findMove.slot1.currentChip.view;
       var targetSprite2 = this.findMove.slot2.currentChip.view;
       var slotViews = [this.findMove.slot1.currentChip.view, this.findMove.slot2.currentChip.view];
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.findMove.result[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var result = _step.value;
-
-          slotViews.push(result.slot.currentChip.view);
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+      for (var result in this.findMove.result) {
+        slotViews.push(this.findMove.result[result].slot.currentChip.view);
       }
 
       this._tutorialView.highlightField(slotViews);
@@ -74673,31 +74269,9 @@ var TutorialAction = function (_Action) {
       this.m3e.setAllChipsMatchPending(false);
       var firstChipMatchedGroup = this.m3e.matchSlot(this._firstSlot.mI, this._firstSlot.mJ);
       if (firstChipMatchedGroup.exist) {
-        var _iteratorNormalCompletion2 = true;
-        var _didIteratorError2 = false;
-        var _iteratorError2 = undefined;
-
-        try {
-          for (var _iterator2 = firstChipMatchedGroup.result[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var item = _step2.value;
-
-            if (item.slot !== null) item.slot.pendingDestroy(item);
-          }
-        } catch (err) {
-          _didIteratorError2 = true;
-          _iteratorError2 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-              _iterator2.return();
-            }
-          } finally {
-            if (_didIteratorError2) {
-              throw _iteratorError2;
-            }
-          }
+        for (var item in firstChipMatchedGroup.result) {
+          if (firstChipMatchedGroup.result[item].slot !== null) firstChipMatchedGroup.result[item].slot.pendingDestroy(firstChipMatchedGroup.result[item]);
         }
-
         this.m3e.decreaseMoves();
         return true;
       } else {
@@ -74726,57 +74300,15 @@ var TutorialAction = function (_Action) {
       } else {
         var firstChipMatchedGroup = this.m3e.matchSlot(this._firstSlot.mI, this._firstSlot.mJ);
         if (firstChipMatchedGroup.exist) {
-          var _iteratorNormalCompletion3 = true;
-          var _didIteratorError3 = false;
-          var _iteratorError3 = undefined;
-
-          try {
-            for (var _iterator3 = firstChipMatchedGroup.result[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-              var item = _step3.value;
-
-              if (item.slot !== null) item.slot.pendingDestroy(item);
-            }
-          } catch (err) {
-            _didIteratorError3 = true;
-            _iteratorError3 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                _iterator3.return();
-              }
-            } finally {
-              if (_didIteratorError3) {
-                throw _iteratorError3;
-              }
-            }
+          for (var item in firstChipMatchedGroup.result) {
+            if (firstChipMatchedGroup.result[item].slot !== null) firstChipMatchedGroup.result[item].slot.pendingDestroy(firstChipMatchedGroup.result[item]);
           }
         }
 
         var secondChipMatchedGroup = this.m3e.matchSlot(this._secondSlot.mI, this._secondSlot.mJ);
         if (secondChipMatchedGroup.exist) {
-          var _iteratorNormalCompletion4 = true;
-          var _didIteratorError4 = false;
-          var _iteratorError4 = undefined;
-
-          try {
-            for (var _iterator4 = secondChipMatchedGroup.result[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-              var _item = _step4.value;
-
-              if (_item.slot !== null) _item.slot.pendingDestroy(_item);
-            }
-          } catch (err) {
-            _didIteratorError4 = true;
-            _iteratorError4 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion4 && _iterator4.return) {
-                _iterator4.return();
-              }
-            } finally {
-              if (_didIteratorError4) {
-                throw _iteratorError4;
-              }
-            }
+          for (var _item in secondChipMatchedGroup.result) {
+            if (secondChipMatchedGroup.result[_item].slot !== null) secondChipMatchedGroup.result[_item].slot.pendingDestroy(secondChipMatchedGroup.result[_item]);
           }
         }
         if (firstChipMatchedGroup.exist || secondChipMatchedGroup.exist) this.m3e.decreaseMoves();
@@ -74839,33 +74371,12 @@ var TutorialAction = function (_Action) {
           }
         } else if (this.m3e.level.gameSettings.inputType == 'tap') {
           if (this._firstSlot != 'empty') {
-            var _iteratorNormalCompletion5 = true;
-            var _didIteratorError5 = false;
-            var _iteratorError5 = undefined;
 
-            try {
-
-              for (var _iterator5 = this.findMove.result[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-                var s = _step5.value;
-
-                if (this.m3e.slotsEqual(this._firstSlot, s.slot) || this.m3e.slotsEqual(this.findMove.slot1, this._firstSlot) || this.m3e.slotsEqual(this.findMove.slot2, this._firstSlot)) {
-                  isDone = this.tapSlots();
-                  this.destroyStep2();
-                  break;
-                }
-              }
-            } catch (err) {
-              _didIteratorError5 = true;
-              _iteratorError5 = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion5 && _iterator5.return) {
-                  _iterator5.return();
-                }
-              } finally {
-                if (_didIteratorError5) {
-                  throw _iteratorError5;
-                }
+            for (var s in this.findMove.result) {
+              if (this.m3e.slotsEqual(this._firstSlot, this.findMove.result[s].slot) || this.m3e.slotsEqual(this.findMove.slot1, this._firstSlot) || this.m3e.slotsEqual(this.findMove.slot2, this._firstSlot)) {
+                isDone = this.tapSlots();
+                this.destroyStep2();
+                break;
               }
             }
           }
@@ -75547,41 +75058,19 @@ var GameTutorial = function () {
         var dy = gSlots.y - _layoutUtils2.default.TOP_OFFSET;
         var sc = gSlots.scale.x;
 
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
+        for (var slotView in slotViews) {
+          var x = (slotViews[slotView].x - _this2._viewSettings.slot.width * 0.5) * sc + dx;
+          var y = (slotViews[slotView].y - _this2._viewSettings.slot.height * 0.5) * sc + dy;
 
-        try {
-          for (var _iterator = slotViews[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var slotView = _step.value;
-
-            var x = (slotView.x - _this2._viewSettings.slot.width * 0.5) * sc + dx;
-            var y = (slotView.y - _this2._viewSettings.slot.height * 0.5) * sc + dy;
-
-            for (var i = 0; i < _this2._viewSettings.slot.width * sc; i++) {
-              for (var j = 0; j < _this2._viewSettings.slot.height * sc; j++) {
-                var alphaIndex = (~~(y + i) * width + ~~(x + j) << 2) + 3;
-                imgData.data[alphaIndex] = 0;
-              }
-            }
-            bmd.context.putImageData(imgData, 0, 0);
-            bmd.update();
-          }
-        } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-              _iterator.return();
-            }
-          } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
+          for (var i = 0; i < _this2._viewSettings.slot.width * sc; i++) {
+            for (var j = 0; j < _this2._viewSettings.slot.height * sc; j++) {
+              var alphaIndex = (~~(y + i) * width + ~~(x + j) << 2) + 3;
+              imgData.data[alphaIndex] = 0;
             }
           }
+          bmd.context.putImageData(imgData, 0, 0);
+          bmd.update();
         }
-
         _this2._maskSprite = _this2._game.make.sprite(_layoutUtils2.default.LEFT_OFFSET, _layoutUtils2.default.TOP_OFFSET, bmd);
         _this2._maskSprite.alpha = 0;
         _this2._gHighlight.add(_this2._maskSprite);
@@ -75846,32 +75335,11 @@ var GameTutorial = function () {
 
       if (!skipSpritesCheck && (!this._maskSprite || !this._arrow)) return;
 
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        for (var _iterator2 = this._cachedTweens[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var t = _step2.value;
-
-          t.stop();
-          t.target.x = t.timeline[0].vStartCache.x;
-          t.target.y = t.timeline[0].vStartCache.y;
-          this._game.tweens.remove(t);
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
+      for (var t in this._cachedTweens) {
+        this._cachedTweens[t].stop();
+        this._cachedTweens[t].target.x = this._cachedTweens[t].timeline[0].vStartCache.x;
+        this._cachedTweens[t].target.y = this._cachedTweens[t].timeline[0].vStartCache.y;
+        this._game.tweens.remove(this._cachedTweens[t]);
       }
 
       if (force) {
@@ -76011,33 +75479,11 @@ var GameUI = function () {
     value: function redrawAllTextData() {
       var _this2 = this;
 
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this._gUI.children[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var item = _step.value;
-
-          if (item.text != null) {
-            item.addFontStyle('normal');
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
+      for (var item in this._gUI.children) {
+        if (this._gUI.children[item].text != null) {
+          this._gUI.children[item].addFontStyle('normal');
         }
       }
-
       if (++this.textRedrawTimes < 3) this._game.time.events.add(1000, function () {
         _this2.redrawAllTextData();
       });
@@ -76751,30 +76197,9 @@ var GameView = function () {
         Args[_key] = arguments[_key];
       }
 
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = Args[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var arg = _step.value;
-
-          this['g' + arg] = this._game.add.group();
-          this._view.add(this['g' + arg]);
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+      for (var i in Args) {
+        this['g' + Args[i]] = this._game.add.group();
+        this._view.add(this['g' + Args[i]]);
       }
     }
   }, {
@@ -76893,29 +76318,9 @@ var GameView = function () {
         slots.push({ slot: obj[moveNumber].slot1 });
         //slots.push({slot: obj[moveNumber].slot2})
 
-        var _iteratorNormalCompletion2 = true;
-        var _didIteratorError2 = false;
-        var _iteratorError2 = undefined;
-
-        try {
-          for (var _iterator2 = findSlots[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var s = _step2.value;
-
-            if (!(s.slot.mI == obj[moveNumber].slot2.mI && s.slot.mJ == obj[moveNumber].slot2.mJ)) slots.push(s);
-          }
-        } catch (err) {
-          _didIteratorError2 = true;
-          _iteratorError2 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-              _iterator2.return();
-            }
-          } finally {
-            if (_didIteratorError2) {
-              throw _iteratorError2;
-            }
-          }
+        for (var s in findSlots) {
+          if (!(findSlots[s].slot.mI == obj[moveNumber].slot2.mI && findSlots[s].slot.mJ == obj[moveNumber].slot2.mJ)) slots.push(findSlots[s]);
+          console.log(findSlots[s]);
         }
       }
       var event = this._game.time.events.add(repeatTime, function () {
@@ -76925,40 +76330,19 @@ var GameView = function () {
       this.helperEvent.push(event);
 
       var effectEvent = this._game.time.events.add(0, function () {
-        var _iteratorNormalCompletion3 = true;
-        var _didIteratorError3 = false;
-        var _iteratorError3 = undefined;
 
-        try {
+        for (var _s in slots) {
+          var slotView = slots[_s].slot.currentChip.view;
+          var twn1 = _this2._game.add.tween(slotView).to({
+            angle: [-15, 0, 15, 0, -15, 0, 15, 0]
+          }, 1500, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
+          var twn2 = _this2._game.add.tween(slotView.scale).to({
+            x: [slotView.scale.x * 1.1, slotView.scale.x],
+            y: [slotView.scale.y * 1.1, slotView.scale.y]
+          }, 1500, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
 
-          for (var _iterator3 = slots[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-            var _s = _step3.value;
-
-            var slotView = _s.slot.currentChip.view;
-            var twn1 = _this2._game.add.tween(slotView).to({
-              angle: [-15, 0, 15, 0, -15, 0, 15, 0]
-            }, 1500, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
-            var twn2 = _this2._game.add.tween(slotView.scale).to({
-              x: [slotView.scale.x * 1.1, slotView.scale.x],
-              y: [slotView.scale.y * 1.1, slotView.scale.y]
-            }, 1500, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
-
-            _this2.hehlperTwn1.push(twn1);
-            _this2.hehlperTwn2.push(twn2);
-          }
-        } catch (err) {
-          _didIteratorError3 = true;
-          _iteratorError3 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion3 && _iterator3.return) {
-              _iterator3.return();
-            }
-          } finally {
-            if (_didIteratorError3) {
-              throw _iteratorError3;
-            }
-          }
+          _this2.hehlperTwn1.push(twn1);
+          _this2.hehlperTwn2.push(twn2);
         }
       });
       this.helperEvent.push(effectEvent);
@@ -76970,87 +76354,24 @@ var GameView = function () {
       if (this.helperEventMain !== null) this.helperEventMain.pendingDelete = true;
 
       if (this.helperEvent.length !== 0) {
-        var _iteratorNormalCompletion4 = true;
-        var _didIteratorError4 = false;
-        var _iteratorError4 = undefined;
-
-        try {
-          for (var _iterator4 = this.helperEvent[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-            var e = _step4.value;
-
-            e.pendingDelete = true;
-          }
-        } catch (err) {
-          _didIteratorError4 = true;
-          _iteratorError4 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion4 && _iterator4.return) {
-              _iterator4.return();
-            }
-          } finally {
-            if (_didIteratorError4) {
-              throw _iteratorError4;
-            }
-          }
+        for (var e in this.helperEvent) {
+          this.helperEvent[e].pendingDelete = true;
         }
       }
 
       this._game.time.events.clearPendingEvents();
 
       if (this.hehlperTwn1.length !== 0) {
-        var _iteratorNormalCompletion5 = true;
-        var _didIteratorError5 = false;
-        var _iteratorError5 = undefined;
-
-        try {
-          for (var _iterator5 = this.hehlperTwn1[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-            var t = _step5.value;
-
-            t.target.alpha = 1;
-            this._game.tweens.remove(t);
-          }
-        } catch (err) {
-          _didIteratorError5 = true;
-          _iteratorError5 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-              _iterator5.return();
-            }
-          } finally {
-            if (_didIteratorError5) {
-              throw _iteratorError5;
-            }
-          }
+        for (var t in this.hehlperTwn1) {
+          this.hehlperTwn1[t].target.alpha = 1;
+          this._game.tweens.remove(this.hehlperTwn1[t]);
         }
       }
 
       if (this.hehlperTwn2.length !== 0) {
-        var _iteratorNormalCompletion6 = true;
-        var _didIteratorError6 = false;
-        var _iteratorError6 = undefined;
-
-        try {
-          for (var _iterator6 = this.hehlperTwn2[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-            var _t = _step6.value;
-
-            _t.target.alpha = 1;
-            this._game.tweens.remove(_t);
-          }
-        } catch (err) {
-          _didIteratorError6 = true;
-          _iteratorError6 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion6 && _iterator6.return) {
-              _iterator6.return();
-            }
-          } finally {
-            if (_didIteratorError6) {
-              throw _iteratorError6;
-            }
-          }
+        for (var _t in this.hehlperTwn2) {
+          this.hehlperTwn2[_t].target.alpha = 1;
+          this._game.tweens.remove(this.hehlperTwn2[_t]);
         }
       }
     }
@@ -77200,64 +76521,43 @@ var Effects = function () {
       var startX = slot.currentChip.view.x;
       var startY = slot.currentChip.view.y;
 
-      var _iteratorNormalCompletion7 = true;
-      var _didIteratorError7 = false;
-      var _iteratorError7 = undefined;
+      var _loop = function _loop(s) {
+        var x = removedSlots[s].slot.currentChip.view.x;
+        var y = removedSlots[s].slot.currentChip.view.y;
 
-      try {
-        var _loop = function _loop() {
-          var s = _step7.value;
+        var width = Phaser.Math.distance(x, y, startX, startY);
 
-          var x = s.slot.currentChip.view.x;
-          var y = s.slot.currentChip.view.y;
+        var bolt = imageLoader.sprite(startX, startY, (width > 260 ? 'long' : 'short') + '_01.png');
+        _this3._group.add(bolt);
 
-          var width = Phaser.Math.distance(x, y, startX, startY);
+        var scaleFactor = width / bolt.width;
 
-          var bolt = imageLoader.sprite(startX, startY, (width > 260 ? 'long' : 'short') + '_01.png');
-          _this3._group.add(bolt);
+        bolt.angle = Phaser.Math.radToDeg(Phaser.Math.angleBetween(startX, startY, x, y));
+        bolt.scale.x = scaleFactor;
+        bolt.anchor.setTo(0, 0.5);
 
-          var scaleFactor = width / bolt.width;
+        var boltFrameNames = Phaser.Animation.generateFrameNames((width > 260 ? 'long' : 'short') + '_', 1, 14, '.png', 2);
+        boltFrameNames = boltFrameNames.concat(boltFrameNames.reverse());
 
-          bolt.angle = Phaser.Math.radToDeg(Phaser.Math.angleBetween(startX, startY, x, y));
-          bolt.scale.x = scaleFactor;
-          bolt.anchor.setTo(0, 0.5);
+        bolt.animations.add('splash', boltFrameNames, 30);
+        bolt.animations.play('splash', _utils2.default.random(20, 35), false, true);
 
-          var boltFrameNames = Phaser.Animation.generateFrameNames((width > 260 ? 'long' : 'short') + '_', 1, 14, '.png', 2);
-          boltFrameNames = boltFrameNames.concat(boltFrameNames.reverse());
+        _this3._game.time.events.add(width > 260 ? 80 : 120, function () {
+          if (x != startX && y != startY || x == startX && y != startY || x != startX && y == startY) {
+            var splash = imageLoader.sprite(x, y, 'bolt_end_splash.png');
+            splash.anchor.set(0.5);
+            _this3._group.add(splash);
+            splash.scale.set(1);
 
-          bolt.animations.add('splash', boltFrameNames, 30);
-          bolt.animations.play('splash', _utils2.default.random(20, 35), false, true);
-
-          _this3._game.time.events.add(width > 260 ? 80 : 120, function () {
-            if (x != startX && y != startY || x == startX && y != startY || x != startX && y == startY) {
-              var splash = imageLoader.sprite(x, y, 'bolt_end_splash.png');
-              splash.anchor.set(0.5);
-              _this3._group.add(splash);
-              splash.scale.set(1);
-
-              _this3._game.time.events.add(width > 260 ? 700 : 750, function () {
-                splash.destroy();
-              });
-            }
-          });
-        };
-
-        for (var _iterator7 = removedSlots[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-          _loop();
-        }
-      } catch (err) {
-        _didIteratorError7 = true;
-        _iteratorError7 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion7 && _iterator7.return) {
-            _iterator7.return();
+            _this3._game.time.events.add(width > 260 ? 700 : 750, function () {
+              splash.destroy();
+            });
           }
-        } finally {
-          if (_didIteratorError7) {
-            throw _iteratorError7;
-          }
-        }
+        });
+      };
+
+      for (var s in removedSlots) {
+        _loop(s);
       }
 
       if (removedSlots.length > 1) {
@@ -77761,89 +77061,26 @@ var ChipView = function (_Phaser$Group) {
   }, {
     key: 'maximize',
     value: function maximize() {
-      var _iteratorNormalCompletion8 = true;
-      var _didIteratorError8 = false;
-      var _iteratorError8 = undefined;
 
-      try {
-
-        for (var _iterator8 = this.tweenEvents[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-          var twn = _step8.value;
-
-          this._game.tweens.remove(twn);
-        }
-      } catch (err) {
-        _didIteratorError8 = true;
-        _iteratorError8 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion8 && _iterator8.return) {
-            _iterator8.return();
-          }
-        } finally {
-          if (_didIteratorError8) {
-            throw _iteratorError8;
-          }
-        }
+      for (var twn in this.tweenEvents) {
+        this._game.tweens.remove(this.tweenEvents[twn]);
       }
 
-      var _iteratorNormalCompletion9 = true;
-      var _didIteratorError9 = false;
-      var _iteratorError9 = undefined;
-
-      try {
-        for (var _iterator9 = this.timeEvents[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-          var te = _step9.value;
-
-          this._game.time.events.remove(te);
-        }
-      } catch (err) {
-        _didIteratorError9 = true;
-        _iteratorError9 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion9 && _iterator9.return) {
-            _iterator9.return();
-          }
-        } finally {
-          if (_didIteratorError9) {
-            throw _iteratorError9;
-          }
-        }
+      for (var te in this.timeEvents) {
+        this._game.time.events.remove(this.timeEvents[te]);
       }
 
       var sprites = [this.effect1, this.effect2, this];
-      var _iteratorNormalCompletion10 = true;
-      var _didIteratorError10 = false;
-      var _iteratorError10 = undefined;
-
-      try {
-        for (var _iterator10 = sprites[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-          var s = _step10.value;
-
-          this._game.add.tween(s.scale).to({
-            x: 3,
-            y: 3
-          }, 1000, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
-          this._game.add.tween(s).to({
-            x: this.x * 0.5 + this.width * 0.5,
-            y: this.x * 0.5 + this.height * 0.5
-          }, 1000, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
-          this._effectsGroup.bringToTop(s);
-        }
-      } catch (err) {
-        _didIteratorError10 = true;
-        _iteratorError10 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion10 && _iterator10.return) {
-            _iterator10.return();
-          }
-        } finally {
-          if (_didIteratorError10) {
-            throw _iteratorError10;
-          }
-        }
+      for (var s in sprites) {
+        this._game.add.tween(sprites[s].scale).to({
+          x: 3,
+          y: 3
+        }, 1000, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
+        this._game.add.tween(s).to({
+          x: this.x * 0.5 + this.width * 0.5,
+          y: this.x * 0.5 + this.height * 0.5
+        }, 1000, Phaser.Easing.Sinusoidal.InOut, true, 1, 0, false);
+        this._effectsGroup.bringToTop(sprites[s].scale);
       }
     }
   }, {
@@ -85160,15 +84397,15 @@ if (query_params.dev_nomraid) {
   console.log("dev_nomraid showAd");
   showAd();
 } else {
-//   if (mraid.getState() != 'ready') {
-//     console.log("MRAID Ad: adding event listener for ready");
-//     mraid.addEventListener('ready', function() {
-//       setupMraid('ready');
-//     });
-//   } else {
+  if (mraid.getState() != 'ready') {
+    console.log("MRAID Ad: adding event listener for ready");
+    mraid.addEventListener('ready', function() {
+      setupMraid('ready');
+    });
+  } else {
     console.log("MRAID default ready");
     setupMraid('default');
-//   }
+  }
 }
 
 function wrapper_cleanup(){
